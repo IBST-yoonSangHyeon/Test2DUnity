@@ -40,8 +40,8 @@ public class Collider1 : MonoBehaviour
         // [게임오브젝트 접근 방법1]
         // name으로 접근
         if (other.gameObject.name == "Dynamic Sprite Collider2"){
-            Debug.Log("충돌이닷!");
-            mat.color = new Color(0f, 0f, 0f);
+            Debug.Log("충돌이닷! OnCollisionEnter2D");
+            mat.color = new Color(255f, 0f, 0f); // 빨강색
         }
 
         // [게임오브젝트 접근 방법2]
@@ -54,11 +54,42 @@ public class Collider1 : MonoBehaviour
 
     // 두 객체가 충돌하는 동안 호출되는 함수
     private void OnCollisionStay2D(Collision2D other) {
-        
+        if (other.gameObject.name == "Dynamic Sprite Collider2"){
+            Debug.Log("충돌이닷! OnCollisionStay2D");
+            mat.color = new Color(0f, 0f, 255f);// 파란색
+        }
     }
 
     // 두 객체가 충돌을 끝마치면 호출되는 함수
     private void OnCollisionExit2D(Collision2D other) {
-        
+        if (other.gameObject.name == "Dynamic Sprite Collider2"){
+            Debug.Log("충돌이닷! OnCollisionExit2D");
+            mat.color = new Color(0f, 0f, 0f); // 검정색
+        }
+    }
+
+    // 두 객체가 충돌시 호출되는 함수
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.name == "Dynamic Sprite Collider2"){
+            Debug.Log("충돌이닷! OnTriggerEnter2D");
+            mat.color = new Color(255f, 204f, 204f); // 빨강색의 밝은 색
+        }
+    }
+
+    // 두 객체가 충돌하는 동안 호출되는 함수
+    private void OnTriggerStay2D(Collider2D other) {
+        if (other.gameObject.name == "Dynamic Sprite Collider2"){
+            Debug.Log("충돌이닷! OnTriggerStay2D");
+            mat.color = new Color(229f, 204f, 255f);// 파란색의 밝은 색
+            
+        }
+    }
+
+    // 두 객체가 충돌이 끝마치면 호출되는 함수
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.name == "Dynamic Sprite Collider2"){
+            Debug.Log("충돌이닷! OnTriggerExit2D"); 
+            mat.color = new Color(255f, 255f, 255f);// 흰색
+        }
     }
 }
